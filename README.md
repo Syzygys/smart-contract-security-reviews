@@ -19,6 +19,7 @@ erodes trust.
 | [Injective swap-contract](reviews/injective-swap-contract.md) | CosmWasm DEX router (Rust) | Static + code hardening | No exploitable vuln; 2 robustness issues found → hardening PR opened upstream |
 | [Solmate SafeTransferLib](reviews/solmate-safetransferlib.md) | ERC-20/ETH transfer wrapper (Solidity asm) | Static, line-by-line | No vulnerability; assembly success-check verified correct + 4 integrator footguns named |
 | [OpenZeppelin ECDSA](reviews/openzeppelin-ecdsa.md) | Signature recovery library (Solidity) | Static, line-by-line | No vulnerability; malleability + address(0) footguns verified closed; flagged parse() bypass + replay caveat |
+| [OpenZeppelin MerkleProof](reviews/openzeppelin-merkleproof.md) | Merkle inclusion-proof library (Solidity) | Static, line-by-line | No vulnerability; 2023 multiproof-forgery fix verified; flagged second-preimage + leaf-validation footguns |
 
 ## Approach
 
