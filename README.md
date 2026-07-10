@@ -1,0 +1,55 @@
+# Smart Contract Security Reviews
+
+Independent, evidence-based security reviews of smart-contract code — every claim
+tied to a specific line, every severity backed by reasoning, and **honest
+"no critical finding" conclusions included** rather than hidden.
+
+This portfolio deliberately shows reviews that found *no reportable
+vulnerability*, because that is the harder and more honest half of the job:
+mature, heavily-audited code usually has no low-hanging bug, and the value of a
+reviewer is a defensible verdict — not an invented one. A review that manufactures
+findings to look productive is worse than useless; it wastes a protocol's time and
+erodes trust.
+
+## Reviews
+
+| Target | Type | Method | Outcome |
+|---|---|---|---|
+| [Uniswap Permit2](reviews/uniswap-permit2.md) | ERC-20 approval infra (Solidity) | Static, line-by-line | No reportable vulnerability — 3 attack paths analysed to definitive verdicts |
+| [Injective swap-contract](reviews/injective-swap-contract.md) | CosmWasm DEX router (Rust) | Static + code hardening | No exploitable vuln; 2 robustness issues found → hardening PR opened upstream |
+
+## Approach
+
+1. **Scope selection with a trust model.** Before reading code, map the actors
+   (owner/admin/spender/attacker), what each can do, and where the real external
+   attack surface is — so effort goes to the paths that matter, not the whole tree.
+2. **Line-cited reasoning.** Every observation references the exact function and
+   line. Verdicts are derived from code structure + protocol/EVM/CosmWasm execution
+   semantics (atomicity, checks-effects-interactions, hash-commitment relationships),
+   not from vibes.
+3. **Definitive severity, honestly.** Each candidate path ends in a clear verdict:
+   *vulnerability*, *not a vulnerability* (with the invariant that protects it), or
+   *needs PoC* (explicitly flagged as unproven). Low-confidence suspicions are never
+   dressed up as findings.
+4. **Turn robustness findings into contributions.** When a review surfaces
+   non-exploitable robustness issues (e.g. a panic path, a missing validation), the
+   fix is offered upstream as a reviewed PR rather than reported as a "bug."
+
+## Why this exists
+
+The bottleneck in open-source and onchain code has shifted from *writing* code to
+*trusting* code — knowing whether a change is safe to merge. As AI-generated
+contributions scale, the scarce skill is credible, auditable verification. These
+reviews are a track record of exactly that: rigorous analysis with an honest
+verdict, whether the verdict is "here is the bug" or "there is no bug here."
+
+## Contact
+
+Open to smart-contract security review work (Solidity / CosmWasm-Rust). Reach out
+via GitHub issues on this repo or the profile linked from the reviews.
+
+---
+
+_All reviews are of public code, conducted read-only. No live contracts, websites,
+or third-party infrastructure were interacted with. Reviews are informational and
+not a warranty of security._
