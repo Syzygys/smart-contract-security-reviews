@@ -18,6 +18,7 @@ erodes trust.
 | [Uniswap Permit2](reviews/uniswap-permit2.md) | ERC-20 approval infra (Solidity) | Static, line-by-line | No reportable vulnerability — 3 attack paths analysed to definitive verdicts |
 | [Injective swap-contract](reviews/injective-swap-contract.md) | CosmWasm DEX router (Rust) | Static + code hardening | No exploitable vuln; 2 robustness issues found → hardening PR opened upstream |
 | [Solmate SafeTransferLib](reviews/solmate-safetransferlib.md) | ERC-20/ETH transfer wrapper (Solidity asm) | Static, line-by-line | No vulnerability; assembly success-check verified correct + 4 integrator footguns named |
+| [OpenZeppelin ECDSA](reviews/openzeppelin-ecdsa.md) | Signature recovery library (Solidity) | Static, line-by-line | No vulnerability; malleability + address(0) footguns verified closed; flagged parse() bypass + replay caveat |
 
 ## Approach
 
