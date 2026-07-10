@@ -43,10 +43,17 @@ contributions scale, the scarce skill is credible, auditable verification. These
 reviews are a track record of exactly that: rigorous analysis with an honest
 verdict, whether the verdict is "here is the bug" or "there is no bug here."
 
-## Contact
+## Engagement
 
-Open to smart-contract security review work (Solidity / CosmWasm-Rust). Reach out
-via GitHub issues on this repo or the profile linked from the reviews.
+Available for **smart-contract security review work** — Solidity and CosmWasm-Rust.
+Typical engagements: a focused review of a specific contract or module, a
+second-opinion review before a deploy, or hardening a change before merge.
+
+- **Contact / commission:** open a GitHub issue on this repo, or reach the profile
+  linked from the reviews.
+- **Payment:** USDC on **Base** — `0x48B76832F99D654Cc9A3Ef8897AE13125386DEF3`.
+  Payment is only for work explicitly agreed and delivered; this address is a
+  receiving rail, not a claim of any prior reward.
 
 ---
 
