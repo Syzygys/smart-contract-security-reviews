@@ -20,6 +20,9 @@ erodes trust.
 | [Solmate SafeTransferLib](reviews/solmate-safetransferlib.md) | ERC-20/ETH transfer wrapper (Solidity asm) | Static, line-by-line | No vulnerability; assembly success-check verified correct + 4 integrator footguns named |
 | [OpenZeppelin ECDSA](reviews/openzeppelin-ecdsa.md) | Signature recovery library (Solidity) | Static, line-by-line | No vulnerability; malleability + address(0) footguns verified closed; flagged parse() bypass + replay caveat |
 | [OpenZeppelin MerkleProof](reviews/openzeppelin-merkleproof.md) | Merkle inclusion-proof library (Solidity) | Static, line-by-line | No vulnerability; 2023 multiproof-forgery fix verified; flagged second-preimage + leaf-validation footguns |
+| [OpenZeppelin ReentrancyGuard](reviews/openzeppelin-reentrancyguard.md) | Reentrancy-protection base (Solidity) | Static, line-by-line | No vulnerability; non-zero sentinel + namespaced slot verified; flagged cross-contract/read-only reentrancy gap |
+| [OpenZeppelin SafeERC20](reviews/openzeppelin-safeerc20.md) | ERC-20 interaction wrapper (Solidity) | Static, line-by-line | No vulnerability; forceApprove approve-race dance verified; flagged approve-race ≠ solved + read-then-write allowance |
+| [OpenZeppelin Clones](reviews/openzeppelin-clones.md) | EIP-1167 minimal-proxy library (Solidity) | Static, line-by-line | No vulnerability; canonical bytecode + create2 verified; flagged no-code-check + front-runnable deterministic deploy |
 | [OpenZeppelin Address](reviews/openzeppelin-address.md) | Low-level call wrapper + `LowLevelCall` backend (Solidity asm) | Static, line-by-line | No vulnerability; non-contract-call guard verified closed on all 3 call variants + self-destruct edge case; flagged deprecated API + memory-alignment footgun |
 
 ## Approach
