@@ -25,6 +25,7 @@ erodes trust.
 | [OpenZeppelin Clones](reviews/openzeppelin-clones.md) | EIP-1167 minimal-proxy library (Solidity) | Static, line-by-line | No vulnerability; canonical bytecode + create2 verified; flagged no-code-check + front-runnable deterministic deploy |
 | [OpenZeppelin Address](reviews/openzeppelin-address.md) | Low-level call wrapper + `LowLevelCall` backend (Solidity asm) | Static, line-by-line | No vulnerability; non-contract-call guard verified closed on all 3 call variants + self-destruct edge case; flagged deprecated API + memory-alignment footgun |
 | [Solmate MerkleProofLib](reviews/solmate-merkleprooflib.md) | Single-proof Merkle verification (Solidity asm) | Static, line-by-line | No vulnerability; scratch-space sort-before-hash + empty-proof case verified correct; flagged undocumented second-preimage risk + zero-root footgun |
+| [Solmate ERC20](reviews/solmate-erc20.md) | ERC-20 + EIP-2612 permit base contract (Solidity) | Static, line-by-line | No vulnerability; unchecked-arithmetic invariant + ecrecover/domain-separator/malleability all traced and verified; flagged permit front-running + no address(0) guards vs. OZ |
 
 ## Approach
 
