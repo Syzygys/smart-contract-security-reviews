@@ -27,6 +27,7 @@ erodes trust.
 | [Solmate MerkleProofLib](reviews/solmate-merkleprooflib.md) | Single-proof Merkle verification (Solidity asm) | Static, line-by-line | No vulnerability; scratch-space sort-before-hash + empty-proof case verified correct; flagged undocumented second-preimage risk + zero-root footgun |
 | [Solmate ERC20](reviews/solmate-erc20.md) | ERC-20 + EIP-2612 permit base contract (Solidity) | Static, line-by-line | No vulnerability; unchecked-arithmetic invariant + ecrecover/domain-separator/malleability all traced and verified; flagged permit front-running + no address(0) guards vs. OZ |
 | [Solmate FixedPointMathLib](reviews/solmate-fixedpointmathlib.md) | WAD fixed-point math library — mulDiv, rpow, sqrt (Solidity asm) | Static, line-by-line | No vulnerability; mulDiv overflow guard + rpow squaring loop + sqrt(0) edge case all re-derived and verified; found 1 inverted (non-exploitable) inline comment; flagged phantom-overflow gap vs. OZ Math.mulDiv |
+| [Solmate SignedWadMath](reviews/solmate-signedwadmath.md) | Signed wad fixed-point math — mul/div + exp/ln rational approximation (Solidity asm) | Static + dynamic (BigInt re-execution against known math identities) | No vulnerability; wadMul/wadDiv int256 MIN/-1 edge case verified via execution; exp/ln boundary constants verified tight against int256 limits; found 1 cosmetic comment/derivation mismatch; flagged silent-zero-division + wadPow integer-inexactness footguns |
 
 ## Approach
 
